@@ -1,0 +1,31 @@
+{
+    "name": "barya/supermetrics_test",
+    "description": "description",
+    "authors": [
+        {
+            "name": "barya",
+            "email": "barinov.dev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Barya\\Stats\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.4",
+        "ext-http": "*",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "lazyjsonmapper/lazyjsonmapper": "^1.6",
+        "symfony/console": "^5.1",
+        "symfony/cache": "^5.1",
+        "symfony/dotenv": "^5.1",
+        "symfony/http-client": "^5.1"
+    },
+    "scripts": {
+        "lazydoctor":  [
+            "lazydoctor -c composer.json -pfo"
+        ]
+    }
+}

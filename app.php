@@ -34,9 +34,9 @@ $pdo = new PDO(sprintf('mysql:host=%s;port=%s;dbname=%s', $dbHost, $dbPort, $dbN
 
 $metricsPool = new SimpleMetricsPool([
         new MySql\AverageNumberOfPostsPerUserPerMonth($pdo),
-        new Mysql\AverageCharLengthPerMonth($pdo),
-        new Mysql\TotalPostsSplitByWeekNumber($pdo),
-        new Mysql\LongestPostByCharLengthPerMonth($pdo)
+        new MySql\AverageCharLengthPerMonth($pdo),
+        new MySql\TotalPostsSplitByWeekNumber($pdo),
+        new MySql\LongestPostByCharLengthPerMonth($pdo)
 ]);
 
 $apiClient = new CachingClient(

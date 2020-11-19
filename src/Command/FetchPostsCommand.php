@@ -35,13 +35,16 @@ class FetchPostsCommand extends BaseCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $currentPage = (int) $input->getArgument(self::ARG_START_PAGE);
+        $this->fetcher->setPage($currentPage);
         try {
             do {
+                $currentPage = $this->fetcher->getPage();
                 $posts = $this->fetcher->fetchPosts();
                 $this->storage->bulkSave($posts);
             } while ($posts !== null);
         } catch (PostsNotSavedException $e) {
-            $output->writeln(sprintf('Posts from page %s were not saved due to: %s', $this->fetcher->getPage(), $e->getMessage()));
+            $output->writeln(sprintf('Posts from page %s were not saved due to: %s', $currentPage, $e->getMessage()));
             $output->writeln('Fetching has been stopped');
             return Command::FAILURE;
         }

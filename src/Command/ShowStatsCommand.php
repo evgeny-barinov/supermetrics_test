@@ -5,12 +5,11 @@ namespace Barya\Stats\Command;
 
 use Barya\Stats\Metric\MetricsPoolInterface;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Command\Command as BaseCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 
-class ShowStatsCommand extends BaseCommand
+class ShowStatsCommand extends Command
 {
     protected static $defaultName = 'app:show-stats';
 

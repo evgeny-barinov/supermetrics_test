@@ -26,6 +26,16 @@
     "scripts": {
         "lazydoctor":  [
             "lazydoctor -c composer.json -pfo"
+        ],
+        "install-demo": [
+            "docker-compose up -d --build",
+            "composer install --ignore-platform-reqs"
+        ],
+        "show-stats": [
+            "php app.php app:show-stats"
+        ],
+        "fetch-posts": [
+            "php app.php app:fetch-posts"
         ]
     }
 }

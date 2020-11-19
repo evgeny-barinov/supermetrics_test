@@ -12,7 +12,7 @@ class AverageCharLengthPerMonth extends Metric implements MetricInterface
      */
     public function data() {
         $query = <<<QUERY
-SELECT ROUND(AVG(`message_length`)) as avg_message_length, DATE_FORMAT(`created_time`, '%Y.%m') as month 
+SELECT ROUND(AVG(`message_length`)) AS avg_message_length, DATE_FORMAT(`created_time`, '%Y.%m') AS month 
 FROM posts GROUP BY month
 QUERY;
 

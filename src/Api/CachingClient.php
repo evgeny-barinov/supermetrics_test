@@ -40,7 +40,7 @@ final class CachingClient
         });
     }
 
-    public function getToken() {
+    public function getToken(): string {
         return $this->client->getToken();
     }
 

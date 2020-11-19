@@ -23,7 +23,7 @@ class PostStorage implements PostStorageInterface
     /**
      * @inheritDoc
      */
-    public function bulkSave($posts): bool {
+    public function bulkSave(array $posts): bool {
         if (empty($posts)) {
             return true;
         }

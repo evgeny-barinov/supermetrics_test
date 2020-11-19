@@ -12,5 +12,5 @@ interface PostStorageInterface {
      * @param Post[] $posts
      * @throws PostsNotSavedException
      */
-    public function bulkSave($posts): bool;
+    public function bulkSave(array $posts): bool;
 }

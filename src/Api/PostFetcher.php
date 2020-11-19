@@ -32,7 +32,7 @@ class PostFetcher implements PostFetcherInterface
         $data = $response->getData();
 
         if ($data->getPage() < $this->page) {
-            $this->completed;
+            $this->completed = true;
             return null;
         }
 

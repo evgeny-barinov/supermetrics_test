@@ -18,4 +18,4 @@
 
 Docker container deployment may take some time to create the DB.
 So if some scripts are run right after installation is done you would be able to see some PDO errors.
-Please wait some time before running fetch or stat commands.
+Please wait some time (I expereinced 1-2 minutes) before running fetch or stat commands.

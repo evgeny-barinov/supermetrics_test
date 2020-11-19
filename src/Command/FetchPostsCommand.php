@@ -40,7 +40,9 @@ class FetchPostsCommand extends Command
             do {
                 $currentPage = $this->fetcher->getPage();
                 $posts = $this->fetcher->fetchPosts();
-                $this->storage->bulkSave($posts);
+                if (is_array($posts)) {
+                    $this->storage->bulkSave($posts);
+                }
             } while ($posts !== null);
         } catch (PostsNotSavedException $e) {
             $output->writeln(sprintf('Posts from page %s were not saved due to: %s', $currentPage, $e->getMessage()));

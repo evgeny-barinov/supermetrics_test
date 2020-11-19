@@ -12,9 +12,9 @@ class AverageNumberOfPostsPerUserPerMonth extends Metric implements MetricInterf
      */
     public function data() {
         $query = <<<QUERY
-SELECT ROUND(AVG(s1.total_posts), 2) AS avg_monthly, s1.from_name 
+SELECT ROUND(AVG(s1.total_posts), 2) AS avg_monthly, s1.from_name
 FROM (
-    SELECT COUNT(id) as total_posts, DATE_FORMAT(created_time, '%m.%Y') AS month, from_name 
+    SELECT COUNT(id) as total_posts, month, from_name
     FROM posts GROUP BY month, from_name
 ) AS s1 
 GROUP BY s1.from_name

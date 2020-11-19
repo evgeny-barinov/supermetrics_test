@@ -12,7 +12,8 @@ class PostStorage implements PostStorageInterface
     private \PDO $db;
 
     private const COLUMNS = [
-        'id', 'from_id', 'from_name', 'type', 'message', 'message_length', 'created_time'
+        'id', 'from_id', 'from_name', 'type', 'message', 'message_length',
+        'created_time', 'month', 'week'
     ];
 
     public function __construct(\PDO $db) {
@@ -76,6 +77,7 @@ class PostStorage implements PostStorageInterface
 
     private function getParamInfo($col, $key, Post $post): array {
         $param = sprintf(":%s_%s", $col, $key);
+        $createdDate = new \DateTime($post->getCreatedTime());
         switch ($col) {
             case 'id':
                 $value = $post->getId();
@@ -102,7 +104,15 @@ class PostStorage implements PostStorageInterface
                 $type = \PDO::PARAM_INT;
                 break;
             case 'created_time':
-                $value = (new \DateTime($post->getCreatedTime()))->format('Y-m-d H:i:s');
+                $value = $createdDate->format('Y-m-d H:i:s');
+                $type = \PDO::PARAM_STR;
+                break;
+            case 'month':
+                $value = $createdDate->format('m-Y');
+                $type = \PDO::PARAM_STR;
+                break;
+            case 'week':
+                $value = $createdDate->format('W');
                 $type = \PDO::PARAM_STR;
                 break;
             default:

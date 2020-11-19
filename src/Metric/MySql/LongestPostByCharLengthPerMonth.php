@@ -13,14 +13,14 @@ class LongestPostByCharLengthPerMonth extends Metric implements MetricInterface
      */
     public function data() {
         $query = <<<QUERY
-SELECT p.id, p.message_length, DATE_FORMAT(p.created_time, '%m.%Y') AS month FROM posts AS p 
+SELECT p.id, p.message_length, p.month FROM posts AS p 
 INNER JOIN ( 
-    SELECT MAX(p1.`message_length`) AS max_length, DATE_FORMAT(p1.created_time, '%m.%Y') AS month 
+    SELECT MAX(p1.`message_length`) AS max_length, month 
     FROM posts p1 GROUP BY month 
 ) AS p2 
 ON 
-    p2.month = DATE_FORMAT(p.created_time, '%m.%Y') 
-    AND p2.max_length=p.message_length
+	p2.month = p.month 
+    AND p2.max_length=p.message_length 
 ORDER BY p.message_length DESC
 QUERY;
 

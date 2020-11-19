@@ -12,10 +12,10 @@ class TotalPostsSplitByWeekNumber extends Metric implements MetricInterface
      */
     public function data() {
         $query = <<<QUERY
-SELECT COUNT(id) as total_posts, WEEK(created_time) as week_number 
-FROM posts 
-GROUP BY week_number 
-ORDER BY week_number DESC
+SELECT COUNT(id) as total_posts, week
+FROM posts
+GROUP BY week 
+ORDER BY week DESC
 QUERY;
 
         return $this->db->query($query)->fetchAll(\PDO::FETCH_ASSOC);

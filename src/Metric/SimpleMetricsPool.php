@@ -37,4 +37,13 @@ class SimpleMetricsPool implements MetricsPoolInterface
     public function getByName(string $name): ?MetricInterface {
         return $this->metrics[$name] ?? null;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getCalculatedMetrics(): array {
+        return array_filter($this->metrics, function($metric) {
+            return $metric instanceof CalculatedMetricInterface;
+        });
+    }
 }

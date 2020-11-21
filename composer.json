@@ -36,6 +36,9 @@
         ],
         "fetch-posts": [
             "php app.php app:fetch-posts"
+        ],
+        "load-posts-metrics": [
+            "php app.php app:load-posts-metrics"
         ]
     }
 }

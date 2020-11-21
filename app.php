@@ -15,6 +15,9 @@ use Barya\Stats\Storage\MySql\PostStorage;
 use Barya\Stats\Metric\MySql;
 use Barya\Stats\Metric\SimpleMetricsPool;
 use Barya\Stats\Command\ShowStatsCommand;
+use Barya\Stats\Command\CalculateMetricsDataCommand;
+use Barya\Stats\Command\LoadPostsMetrics;
+
 $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/.env');
 
@@ -50,5 +53,7 @@ $storage = new PostStorage($pdo);
 $application = new Application();
 $application->add(new FetchPostsCommand($fetcher, $storage));
 $application->add(new ShowStatsCommand($metricsPool));
+$application->add(new CalculateMetricsDataCommand($metricsPool->getCalculatedMetrics()));
+$application->add(new LoadPostsMetrics());
 
 $application->run();

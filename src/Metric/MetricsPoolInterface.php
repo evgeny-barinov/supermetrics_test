@@ -14,4 +14,9 @@ interface MetricsPoolInterface
     public function getAll(): array;
 
     public function getByName(string $name): ?MetricInterface;
+
+    /**
+     * @return CalculatedMetricInterface[]
+     */
+    public function getCalculatedMetrics(): array;
 }

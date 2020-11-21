@@ -17,7 +17,7 @@
 
 ### Load Posts Metrics
 
-`compser run load-posts-metrics`
+`composer run load-posts-metrics`
 
 ## Troubleshooting
 

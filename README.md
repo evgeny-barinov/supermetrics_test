@@ -6,8 +6,8 @@
 
 ## Usage
 
-1. Run [Load Posts Metrics Command](### Load Posts Metrics) command to load everything
-2. Run [Show Stats Command](### Show Stats) to display metrics
+1. Run **Load Posts Metrics** command to load everything
+2. Run **Show Stats** command to display metrics
 
 ## Commands
 

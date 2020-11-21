@@ -19,6 +19,14 @@
 
 `composer run load-posts-metrics`
 
+## Third-party modules used
+
+ - **symfony/console** - to use console interface
+ - **symfony/http-client** - to implement API access easily
+ - **symfony/dotenv** - to use ENV variable for saving sensitive details locally such as API credentials
+ - **symfony/cache** - to save API token in a file system in this case
+ - **lazyjsonmapper/lazyjsonmapper** - provides a good abstractions for JSON 
+
 ## Troubleshooting
 
 Docker container deployment may take some time to create the DB.

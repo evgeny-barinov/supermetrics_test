@@ -25,7 +25,7 @@
  - **symfony/http-client** - to implement API access easily
  - **symfony/dotenv** - to use ENV variable for saving sensitive details locally such as API credentials
  - **symfony/cache** - to save API token in a file system in this case
- - **lazyjsonmapper/lazyjsonmapper** - provides a good abstractions for JSON 
+ - **lazyjsonmapper/lazyjsonmapper** - provides good abstractions for JSON 
 
 ## Troubleshooting
 

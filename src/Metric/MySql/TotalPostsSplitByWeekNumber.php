@@ -14,8 +14,7 @@ class TotalPostsSplitByWeekNumber extends Metric implements MetricInterface
         $query = <<<QUERY
 SELECT COUNT(id) as total_posts, week
 FROM posts
-GROUP BY week 
-ORDER BY week DESC
+GROUP BY week
 QUERY;
 
         return $this->db->query($query)->fetchAll(\PDO::FETCH_ASSOC);

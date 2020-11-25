@@ -11,13 +11,13 @@
 
 ## Commands
 
-### Show Stats
-    
-`composer run show-stats`
-
 ### Load Posts Metrics
 
 `composer run load-posts-metrics`
+
+### Show Stats
+    
+`composer run show-stats`
 
 ## Third-party modules used
 
